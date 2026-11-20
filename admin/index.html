@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#F3E7E0" />
+  <title>Inventory Admin — KatsuiRiku Journey</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fredoka:wght@400;500;600;700&amp;family=Manrope:wght@500;700;800&amp;family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css?v=20261111a" />
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="admin-topbar">
+      <a class="admin-brand" href="../index.html">
+        <span class="admin-mark" aria-hidden="true">✦</span>
+        <span>
+          <strong>KATSUIRIKU</strong>
+          <small>INVENTORY ADMIN</small>
+        </span>
+      </a>
+      <div class="admin-account">
+        <span id="admin-email"></span>
+        <button class="btn btn-ghost btn-sm" id="logout-btn" type="button" hidden>Logout</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="auth-card" id="setup-screen" hidden>
+        <p class="eyebrow">Setup</p>
+        <h1>Supabase belum siap</h1>
+        <p>Config Supabase tidak valid atau library gagal dimuat. Periksa <code>assets/js/supabase-config.js</code> dan koneksi internet.</p>
+        <p class="status err" id="setup-status"></p>
+      </section>
+
+      <section class="auth-card" id="login-screen" hidden>
+        <p class="eyebrow">Admin</p>
+        <h1>Inventory Editor</h1>
+        <p class="auth-lead">Masuk dengan akun admin Supabase yang sama seperti panel commission. Hanya admin yang bisa menambah, mengubah, dan menghapus item.</p>
+        <form id="login-form">
+          <label>
+            <span>Email</span>
+            <input id="login-email" type="email" autocomplete="username" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="login-password" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn btn-primary" id="login-btn" type="submit">Masuk</button>
+          <p class="status" id="login-status"></p>
+        </form>
+        <p class="hint">Akses tulis dilindungi RLS + RPC <code>is_admin</code>. Akun non-admin akan ditolak.</p>
+      </section>
+
+      <section id="dashboard-screen" hidden>
+        <div class="dashboard-head">
+          <div>
+            <p class="eyebrow">Admin</p>
+            <h1>Inventory Editor</h1>
+            <p class="dashboard-lead">Tambah barang, tulis deskripsi ID/EN, atur kategori, rarity, icon, urutan, dan visibilitas. Publik hanya bisa melihat.</p>
+          </div>
+          <div class="dashboard-actions">
+            <button class="btn btn-ghost btn-sm" id="refresh-btn" type="button">Refresh</button>
+            <button class="btn btn-primary btn-sm" id="new-btn" type="button">+ Item baru</button>
+          </div>
+        </div>
+
+        <div class="setup-hint" id="setup-hint" hidden>
+          <strong>Tabel <code>vn_inventory</code> belum ada.</strong>
+          <span>Jalankan SQL di <a href="../supabase/migrations/20261111_vn_inventory.sql" target="_blank" rel="noopener">supabase/migrations/20261111_vn_inventory.sql</a> lewat Supabase SQL Editor, lalu klik Refresh.</span>
+        </div>
+
+        <div class="admin-layout">
+          <section class="editor-card">
+            <div class="editor-head">
+              <div>
+                <p class="eyebrow">Form</p>
+                <h2 id="editor-title">Item baru</h2>
+              </div>
+              <button class="btn btn-ghost btn-sm" id="cancel-edit" type="button" hidden>Batal edit</button>
+            </div>
+
+            <form id="item-form">
+              <input id="item-id" type="hidden" />
+
+              <div class="field-grid">
+                <label>
+                  <span>Nama (ID)</span>
+                  <input id="name-id" type="text" maxlength="120" required />
+                </label>
+                <label>
+                  <span>Name (EN)</span>
+                  <input id="name-en" type="text" maxlength="120" placeholder="Opsional" />
+                </label>
+              </div>
+
+              <label>
+                <span>Deskripsi (ID)</span>
+                <textarea id="description-id" rows="4" maxlength="800" required></textarea>
+              </label>
+
+              <label>
+                <span>Description (EN)</span>
+                <textarea id="description-en" rows="4" maxlength="800" placeholder="Opsional"></textarea>
+              </label>
+
+              <div class="field-grid">
+                <label>
+                  <span>Kategori</span>
+                  <select id="category">
+                    <option value="artifact">Artefak / Artifact</option>
+                    <option value="tool">Alat / Tool</option>
+                    <option value="keepsake">Kenang-kenangan / Keepsake</option>
+                    <option value="map">Peta / Map</option>
+                    <option value="supply">Perlengkapan / Supply</option>
+                    <option value="other">Lainnya / Other</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Rarity</span>
+                  <select id="rarity">
+                    <option value="common">Umum / Common</option>
+                    <option value="uncommon">Tak Umum / Uncommon</option>
+                    <option value="rare">Langka / Rare</option>
+                    <option value="epic">Epik / Epic</option>
+                    <option value="legendary">Legendaris / Legendary</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label>
+                  <span>Icon</span>
+                  <input id="icon" type="text" maxlength="8" value="✦" placeholder="✦" />
+                </label>
+                <label>
+                  <span>Sort order</span>
+                  <input id="sort-order" type="number" step="1" value="100" />
+                </label>
+              </div>
+
+              <label>
+                <span>Image URL (opsional)</span>
+                <input id="image-url" type="url" maxlength="500" placeholder="https://..." />
+              </label>
+
+              <label class="checkbox-row">
+                <input id="visible" type="checkbox" checked />
+                <span>Tampilkan di inventory publik</span>
+              </label>
+
+              <div class="form-actions">
+                <button class="btn btn-primary" id="save-btn" type="submit">Simpan item</button>
+                <button class="btn btn-ghost" id="reset-btn" type="button">Reset form</button>
+              </div>
+              <p class="status" id="form-status"></p>
+            </form>
+          </section>
+
+          <section class="list-card">
+            <div class="list-head">
+              <div>
+                <p class="eyebrow">Data</p>
+                <h2>Item tersimpan</h2>
+              </div>
+              <span class="count-pill" id="item-count">0 item</span>
+            </div>
+            <div class="admin-list" id="admin-list"></div>
+            <p class="status" id="list-status"></p>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+  <script src="../assets/js/supabase-config.js" defer></script>
+  <script src="admin.js?v=20261111a" defer></script>
+</body>
+</html>

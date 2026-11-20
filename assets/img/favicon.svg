@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="72%">
+      <stop offset="0" stop-color="#FFF9EF"/>
+      <stop offset=".58" stop-color="#F4E7DA"/>
+      <stop offset="1" stop-color="#D9A6A6"/>
+    </radialGradient>
+    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6D38B"/>
+      <stop offset=".42" stop-color="#B86B6B"/>
+      <stop offset="1" stop-color="#8E4F4F"/>
+    </linearGradient>
+    <linearGradient id="ear" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4E7DA"/>
+      <stop offset="1" stop-color="#D9A6A6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="17" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#8E4F4F" stroke-opacity=".2" stroke-width="1"/>
+  <ellipse cx="32" cy="34" rx="25" ry="13" fill="none" stroke="#C9A227" stroke-opacity=".35" stroke-width="1.2" transform="rotate(-18 32 34)"/>
+  <path d="M20 17 L24 7 L30 17 Z" fill="url(#ear)" stroke="#8E4F4F" stroke-opacity=".35" stroke-width="1"/>
+  <path d="M44 17 L40 7 L34 17 Z" fill="url(#ear)" stroke="#8E4F4F" stroke-opacity=".35" stroke-width="1"/>
+  <path d="M32 12 L36.2 25.4 L50 26.4 L39 34.4 L42.8 47.6 L32 40 L21.2 47.6 L25 34.4 L14 26.4 L27.8 25.4 Z" fill="url(#star)" stroke="#8E4F4F" stroke-opacity=".25" stroke-width="1"/>
+  <circle cx="32" cy="31" r="3.2" fill="#FFF9EF" opacity=".9"/>
+  <circle cx="48" cy="20" r="1.8" fill="#C9A227"/>
+  <circle cx="15" cy="45" r="1.4" fill="#C9A227" opacity=".8"/>
+  <path d="M13 52 C 22 58, 42 58, 51 52" fill="none" stroke="#8E4F4F" stroke-opacity=".22" stroke-width="1.4" stroke-linecap="round"/>
+</svg>

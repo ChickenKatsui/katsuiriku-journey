@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KatsuiRiku: Penjahit Cerita — visual novel prolog tentang doggo galaxy yang menjahit cerita dari semesta. Bilingual ID/EN, dengan inventory, peta dunia, dan codex lore." />
+  <meta name="theme-color" content="#F3E7E0" />
+  <title>KatsuiRiku: Penjahit Cerita — Prolog</title>
+  <link rel="icon" href="assets/img/favicon.svg?v=20261117c" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Fredoka:wght@400;500;600;700&amp;family=Manrope:wght@500;700;800&amp;family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261117c" />
+</head>
+<body>
+  <div class="app">
+    <div class="cosmic-bg" aria-hidden="true">
+      <div class="nebula nebula-a"></div>
+      <div class="nebula nebula-b"></div>
+      <div class="nebula nebula-c"></div>
+      <div class="starfield"></div>
+      <div class="grid-glow"></div>
+      <div class="grain"></div>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="KatsuiRiku: Penjahit Cerita">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <strong>KATSUIRIKU</strong>
+          <small>THE STORY WEAVER</small>
+        </span>
+      </a>
+      <div class="topbar-actions">
+        <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+          <button type="button" data-lang="id" aria-pressed="true">ID</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="icon-btn" id="menu-settings" type="button" aria-label="Settings / Pengaturan">⚙</button>
+      </div>
+    </header>
+
+    <main id="menu-screen" class="menu-screen menu-poster">
+      <div class="poster-noise" aria-hidden="true"></div>
+      <div class="poster-rail" aria-hidden="true">
+        <span>PROLOGUE / 01</span>
+        <span>THE LOOM</span>
+        <span>KATSUIRIKU CH</span>
+      </div>
+
+      <section class="poster-copy" aria-labelledby="menu-title">
+        <div class="poster-kicker-row">
+          <p class="eyebrow" data-i18n="menu.eyebrow">Doggo galaxy · Penjaga benang cerita</p>
+          <span class="poster-signal"><i aria-hidden="true"></i> SIGNAL 98%</span>
+        </div>
+
+        <div class="poster-title-wrap">
+          <span class="poster-ghost" aria-hidden="true">STORY</span>
+          <h1 class="poster-title" id="menu-title">
+            <span class="poster-title-line1" data-i18n="menu.titleLine1">KATSUIRIKU</span>
+            <span class="poster-title-line2" data-i18n="menu.titleLine2">PENJAHIT CERITA</span>
+          </h1>
+          <span class="poster-index" aria-hidden="true">01</span>
+        </div>
+
+        <p class="poster-tagline" data-i18n="menu.tagline">Di antara jutaan stream, ada satu cerita yang menolak untuk dilupakan. Malam ini, Sang Penonton belajar menjahit.</p>
+
+        <div class="poster-rule" aria-hidden="true"><span></span><b>✦</b><span></span></div>
+
+        <nav class="poster-grid" aria-label="Main menu / Menu utama">
+          <button class="poster-card poster-card-primary" id="menu-start" type="button">
+            <span class="poster-card-no" aria-hidden="true">01</span>
+            <span class="poster-card-body">
+              <span class="poster-card-kicker">PROLOGUE · CHAPTER 01</span>
+              <strong data-i18n="menu.start">Mulai Prolog</strong>
+              <small data-i18n="menu.startSub">Bab 01 — Mercusuar di Tepi Semesta</small>
+            </span>
+            <span class="poster-card-cta"><span data-i18n="menu.play">Mainkan</span><i aria-hidden="true">→</i></span>
+            <span class="poster-card-stitch" aria-hidden="true"></span>
+          </button>
+
+          <button class="poster-card" id="menu-inventory" type="button">
+            <span class="poster-card-no" aria-hidden="true">02</span>
+            <span class="poster-card-body">
+              <span class="poster-card-kicker">COLLECTION</span>
+              <strong data-i18n="menu.inventory">Inventory</strong>
+              <small data-i18n="menu.inventorySub">Koleksi benang, kristal, dan kenangan</small>
+            </span>
+            <span class="poster-card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="poster-card" id="menu-worldmap" type="button">
+            <span class="poster-card-no" aria-hidden="true">03</span>
+            <span class="poster-card-body">
+              <span class="poster-card-kicker">WORLD</span>
+              <strong data-i18n="menu.worldmap">Peta Dunia</strong>
+              <small data-i18n="menu.worldmapSub">Jelajahi sektor-sektor cerita</small>
+            </span>
+            <span class="poster-card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="poster-card" id="menu-lore" type="button">
+            <span class="poster-card-no" aria-hidden="true">04</span>
+            <span class="poster-card-body">
+              <span class="poster-card-kicker">CODEX</span>
+              <strong data-i18n="menu.lore">Lore</strong>
+              <small data-i18n="menu.loreSub">Codex tenun semesta dan para penjaga</small>
+            </span>
+            <span class="poster-card-arrow" aria-hidden="true">↗</span>
+          </button>
+
+          <button class="poster-card" id="menu-about" type="button">
+            <span class="poster-card-no" aria-hidden="true">05</span>
+            <span class="poster-card-body">
+              <span class="poster-card-kicker">ABOUT</span>
+              <strong data-i18n="menu.about">Tentang</strong>
+              <small data-i18n="menu.aboutSub">Dunia, karakter, dan catatan proyek</small>
+            </span>
+            <span class="poster-card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </nav>
+
+        <div class="poster-footer">
+          <span class="poster-pill" data-i18n="menu.badge">Prolog · Bab 01</span>
+          <span class="poster-note" data-i18n="menu.note">Prototipe cerita · aset konsep</span>
+          <span class="poster-build">BUILD 0.2</span>
+        </div>
+      </section>
+
+      <section class="poster-visual" aria-label="KatsuiRiku character concept">
+        <div class="poster-frame" aria-hidden="true">
+          <span class="frame-corner tl"></span>
+          <span class="frame-corner tr"></span>
+          <span class="frame-corner bl"></span>
+          <span class="frame-corner br"></span>
+          <span class="frame-line frame-line-top"></span>
+          <span class="frame-line frame-line-bottom"></span>
+        </div>
+        <div class="poster-halo" aria-hidden="true"></div>
+        <div class="poster-orbit poster-orbit-a" aria-hidden="true"></div>
+        <div class="poster-orbit poster-orbit-b" aria-hidden="true"></div>
+        <div class="poster-orbit poster-orbit-c" aria-hidden="true"></div>
+        <div class="poster-sparkles" aria-hidden="true">
+          <span style="--x:12%;--y:22%;--d:0s"></span>
+          <span style="--x:82%;--y:16%;--d:.7s"></span>
+          <span style="--x:74%;--y:70%;--d:1.4s"></span>
+          <span style="--x:18%;--y:76%;--d:2.1s"></span>
+          <span style="--x:52%;--y:8%;--d:1.1s"></span>
+          <span style="--x:88%;--y:48%;--d:2.6s"></span>
+        </div>
+        <div class="riku-parallax" id="riku-parallax">
+          <div class="poster-portrait">
+            <img class="riku-img" src="assets/img/riku.png?v=20261117c" alt="KatsuiRiku, doggo galaxy berambut pirang dengan telinga rubah, bersandar di meja sambil tersenyum" />
+            <div class="poster-caption">
+              <span class="caption-line" aria-hidden="true"></span>
+              <span data-i18n="menu.caption">Riku — Sang Penjahit Cerita</span>
+            </div>
+          </div>
+        </div>
+        <div class="poster-tag poster-tag-a"><span class="tag-dot" aria-hidden="true"></span> REC · LIVE <span class="tag-bars" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="poster-tag poster-tag-b">THREAD 001</div>
+        <div class="poster-tag poster-tag-c">OBSERVER MODE</div>
+        <div class="poster-stamp" aria-hidden="true">FIRST<br />OSHI</div>
+      </section>
+
+      <div class="poster-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>RECORD</span><i>✦</i><span>CUT</span><i>✦</i><span>SEW</span><i>✦</i><span>REPEAT</span><i>✦</i>
+          <span>RECORD</span><i>✦</i><span>CUT</span><i>✦</i><span>SEW</span><i>✦</i><span>REPEAT</span><i>✦</i>
+        </div>
+      </div>
+    </main>
+
+    <section id="vn-screen" class="vn-screen" hidden aria-label="Visual novel prologue">
+      <div class="vn-progress" id="vn-progress" aria-hidden="true"></div>
+      <div class="vn-bg bg-cosmos" id="vn-bg" data-bg="cosmos" aria-hidden="true"></div>
+      <div class="vn-vignette" aria-hidden="true"></div>
+
+      <header class="vn-topbar">
+        <button class="ghost-btn" id="vn-back" type="button">← <span data-i18n="vn.menu">Menu</span></button>
+        <div class="vn-chapter">
+          <span class="chapter-kicker" data-i18n="vn.prologue">Prolog</span>
+          <strong id="vn-scene-label">01 / 16</strong>
+        </div>
+        <div class="vn-top-actions">
+          <div class="lang-switch lang-switch-sm" role="group" aria-label="Language / Bahasa">
+            <button type="button" data-lang="id" aria-pressed="true">ID</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button class="icon-btn" id="vn-settings" type="button" aria-label="Settings / Pengaturan">⚙</button>
+        </div>
+      </header>
+
+      <div class="vn-stage">
+        <div class="vn-character" id="vn-character" hidden data-pose="bust">
+          <div class="vn-portrait">
+            <img id="vn-character-img" src="assets/img/riku.png?v=20261117c" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="vn-dialogue" id="vn-dialogue" tabindex="0" role="button" aria-label="Advance dialogue / Lanjutkan dialog">
+        <div class="vn-speaker" id="vn-speaker"></div>
+        <p class="vn-text" id="vn-text"></p>
+        <div class="vn-next" id="vn-next" aria-hidden="true">▼</div>
+      </div>
+
+      <div class="vn-choices" id="vn-choices" hidden></div>
+
+      <div class="vn-end" id="vn-end" hidden>
+        <div class="end-card">
+          <p class="eyebrow" data-i18n="end.eyebrow">Prolog selesai</p>
+          <h2 data-i18n="end.title">Benang pertama telah dijahit.</h2>
+          <p data-i18n="end.desc">Perjalanan Riku baru saja dimulai.</p>
+          <div class="end-actions">
+            <button class="btn btn-primary" id="end-menu" type="button" data-i18n="end.back">Kembali ke Menu</button>
+            <button class="btn btn-ghost" id="end-replay" type="button" data-i18n="end.replay">Ulangi Prolog</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inventory-screen" class="game-panel" hidden aria-label="Inventory">
+      <header class="panel-topbar">
+        <button class="ghost-btn" id="inventory-back" type="button">← <span data-i18n="panel.menu">Menu</span></button>
+        <div class="panel-heading">
+          <span class="panel-kicker" data-i18n="inventory.kicker">Collection</span>
+          <strong data-i18n="inventory.title">Inventory</strong>
+        </div>
+        <span class="public-badge" data-i18n="inventory.publicBadge">Public view</span>
+      </header>
+      <div class="panel-body">
+        <div class="panel-hero">
+          <p class="eyebrow" data-i18n="inventory.kicker">Collection</p>
+          <h2 data-i18n="inventory.title">Inventory</h2>
+          <p data-i18n="inventory.desc">Benang, kristal, dan kenangan yang dikumpulkan Riku selama menjelajahi semesta cerita. Semua orang bisa melihat, hanya admin yang bisa mengedit.</p>
+        </div>
+        <div class="inventory-toolbar">
+          <div class="inventory-filters" id="inventory-filters"></div>
+          <span class="inventory-source" id="inventory-source"></span>
+        </div>
+        <div class="inventory-grid" id="inventory-grid"></div>
+        <p class="inventory-empty" id="inventory-empty" hidden data-i18n="inventory.empty">Belum ada item di inventory.</p>
+      </div>
+    </section>
+
+    <section id="worldmap-screen" class="game-panel" hidden aria-label="World map">
+      <header class="panel-topbar">
+        <button class="ghost-btn" id="worldmap-back" type="button">← <span data-i18n="panel.menu">Menu</span></button>
+        <div class="panel-heading">
+          <span class="panel-kicker" data-i18n="worldmap.kicker">World</span>
+          <strong data-i18n="worldmap.title">Peta Dunia</strong>
+        </div>
+        <span class="public-badge" data-i18n="worldmap.publicBadge">Public view</span>
+      </header>
+      <div class="panel-body">
+        <div class="panel-hero">
+          <p class="eyebrow" data-i18n="worldmap.kicker">World</p>
+          <h2 data-i18n="worldmap.title">Peta Dunia</h2>
+          <p data-i18n="worldmap.desc">Sektor-sektor tempat benang cerita berkumpul. Beberapa area masih terkunci karena ceritanya belum siap untuk ditemukan.</p>
+        </div>
+        <div class="worldmap-layout">
+          <div class="worldmap-canvas" id="worldmap-canvas">
+            <div class="map-grid" aria-hidden="true"></div>
+            <div class="map-orbit map-orbit-a" aria-hidden="true"></div>
+            <div class="map-orbit map-orbit-b" aria-hidden="true"></div>
+            <div class="map-orbit map-orbit-c" aria-hidden="true"></div>
+            <div class="map-meta" aria-hidden="true">
+              <span data-i18n="worldmap.mapMeta">Peta Sektor</span>
+              <span data-i18n="worldmap.nodeCount">07 node</span>
+            </div>
+            <svg class="map-constellation" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <g fill="none" stroke="#C9A227" stroke-opacity=".16" stroke-width="1.2" stroke-dasharray="3 7" vector-effect="non-scaling-stroke">
+                <path d="M20 24 L50 40 L72 18"/>
+                <path d="M50 40 L26 58"/>
+                <path d="M50 40 L78 56"/>
+                <path d="M50 40 L60 82"/>
+                <path d="M26 58 L18 80"/>
+                <path d="M78 56 L60 82"/>
+              </g>
+              <path id="map-route-path" d="M20 24 C 30 30, 40 36, 50 40 C 58 34, 64 24, 72 18" fill="none" stroke="#C9A227" stroke-opacity=".28" stroke-width="1.4" stroke-dasharray="2 5" vector-effect="non-scaling-stroke"/>
+              <circle r="1.4" fill="#C9A227" opacity=".18">
+                <animateMotion dur="9s" repeatCount="indefinite">
+                  <mpath href="#map-route-path"/>
+                </animateMotion>
+              </circle>
+              <circle r=".7" fill="#C9A227" opacity=".95">
+                <animateMotion dur="9s" repeatCount="indefinite">
+                  <mpath href="#map-route-path"/>
+                </animateMotion>
+              </circle>
+            </svg>
+            <div class="map-compass" aria-hidden="true"><span>N</span></div>
+            <div class="map-legend" aria-hidden="true">
+              <span><i class="legend-dot is-available"></i><span data-i18n="worldmap.status.available">Available</span></span>
+              <span><i class="legend-dot is-locked"></i><span data-i18n="worldmap.status.locked">Locked</span></span>
+              <span><i class="legend-dot is-unknown"></i><span data-i18n="worldmap.status.unknown">Unknown</span></span>
+            </div>
+          </div>
+          <aside class="map-detail" id="map-detail">
+            <div class="map-detail-head">
+              <span class="map-detail-icon" id="map-detail-icon" aria-hidden="true">✦</span>
+              <div>
+                <p class="map-detail-kicker" data-i18n="worldmap.detailKicker">Location</p>
+                <h3 id="map-detail-title" data-i18n="worldmap.selectHint">Pilih lokasi</h3>
+              </div>
+            </div>
+            <p id="map-detail-desc" data-i18n="worldmap.selectDesc">Klik salah satu titik di peta untuk melihat detail sektor cerita.</p>
+            <span class="map-status" id="map-detail-status" hidden></span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="lore-screen" class="game-panel lore-panel" hidden aria-label="Lore codex">
+      <header class="panel-topbar">
+        <button class="ghost-btn" id="lore-back" type="button">← <span data-i18n="panel.menu">Menu</span></button>
+        <div class="panel-heading">
+          <span class="panel-kicker" data-i18n="lore.kicker">Codex</span>
+          <strong data-i18n="lore.title">Tenun Semesta</strong>
+        </div>
+        <span class="public-badge" data-i18n="lore.publicBadge">Codex</span>
+      </header>
+      <div class="panel-body">
+        <div class="panel-hero lore-hero">
+          <p class="eyebrow" data-i18n="lore.kicker">Codex</p>
+          <h2 data-i18n="lore.title">Tenun Semesta</h2>
+          <p data-i18n="lore.desc">Catatan tentang tenun semesta, benang cerita, dan makhluk-makhluk yang menjaganya.</p>
+        </div>
+        <div class="lore-toolbar">
+          <div class="lore-filters" id="lore-filters"></div>
+          <span class="lore-count" id="lore-count"></span>
+        </div>
+        <div class="lore-grid" id="lore-grid"></div>
+        <div class="lore-quote">
+          <span class="lore-quote-mark" aria-hidden="true">“</span>
+          <p data-i18n="lore.quote">Cerita tidak pernah benar-benar hilang. Ia hanya menunggu seseorang yang cukup berani untuk menjahitnya kembali.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modal-settings" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="settings.kicker">Preferensi</p>
+            <h2 id="settings-title" data-i18n="settings.title">Pengaturan</h2>
+          </div>
+          <button class="icon-btn" type="button" data-close-modal aria-label="Close / Tutup">×</button>
+        </div>
+
+        <div class="setting-row">
+          <label data-i18n="settings.language">Bahasa</label>
+          <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+            <button type="button" data-lang="id" aria-pressed="true">ID</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+        </div>
+
+        <div class="setting-row setting-row-stack">
+          <label for="text-speed" data-i18n="settings.textSpeed">Kecepatan teks</label>
+          <input type="range" id="text-speed" min="0" max="100" value="55" />
+        </div>
+
+        <div class="setting-row">
+          <label for="reduce-motion" data-i18n="settings.reduceMotion">Kurangi animasi</label>
+          <input type="checkbox" id="reduce-motion" />
+        </div>
+
+        <p class="modal-note" data-i18n="settings.note">Prototipe: audio dan galeri belum tersedia.</p>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-about" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-card modal-card-wide" role="dialog" aria-modal="true" aria-labelledby="about-title">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="about.kicker">Tentang proyek</p>
+            <h2 id="about-title" data-i18n="about.title">KatsuiRiku: Penjahit Cerita</h2>
+          </div>
+          <button class="icon-btn" type="button" data-close-modal aria-label="Close / Tutup">×</button>
+        </div>
+
+        <div class="about-copy">
+          <p data-i18n="about.p1">KatsuiRiku adalah demi-human berbentuk doggo galaxy yang lahir dari bintang yang runtuh dan perpustakaan yang bermimpi. Ia bukan dewa. Ia hanya penjaga cerita yang terlalu lama menonton dari jauh.</p>
+          <p data-i18n="about.p2">Di semesta ini, setiap stream adalah benang. Riku bisa merekam, memotong, dan menjahitnya menjadi cerita gema—selama ia tidak pernah menimpa cerita aslinya. Aturan itu disebut Hukum Gema.</p>
+          <p data-i18n="about.p3">Semuanya berubah ketika ia menemukan Kanna Tamachi, VTuber dengan suara seperti mercusuar. Kanna adalah oshi pertamanya, dan benang rose-gold pertama yang membuat Riku ingin menjadi Sang Penjahit Cerita.</p>
+        </div>
+
+        <div class="about-note">
+          <span class="note-dot" aria-hidden="true"></span>
+          <span data-i18n="about.note">Prolog ini adalah prototipe. Cerita, karakter, dan aset masih dalam pengembangan.</span>
+        </div>
+
+        <p class="about-credits" data-i18n="about.credits">Story &amp; character: KatsuiRiku Ch · Engine: web visual novel prototype</p>
+        <p class="about-admin"><a href="admin/" data-i18n="about.adminLink">Kelola inventory (admin) →</a></p>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-item" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-card item-modal-card" role="dialog" aria-modal="true" aria-labelledby="item-modal-name">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" id="item-modal-kicker">Item</p>
+            <h2 id="item-modal-name"></h2>
+          </div>
+          <button class="icon-btn" type="button" data-close-modal aria-label="Close / Tutup">×</button>
+        </div>
+        <div class="item-modal-visual" id="item-modal-visual"></div>
+        <div class="item-modal-meta" id="item-modal-meta"></div>
+        <p class="item-modal-desc" id="item-modal-desc"></p>
+        <p class="modal-note" data-i18n="inventory.publicNote">Public view — hanya admin yang bisa mengedit inventory.</p>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" hidden></div>
+  </div>
+
+  <noscript>
+    <p style="padding:2rem;color:#3A2620;font-family:sans-serif;">Aktifkan JavaScript untuk memainkan prolog ini.</p>
+  </noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+  <script src="assets/js/supabase-config.js?v=20261117c" defer></script>
+  <script src="assets/js/i18n.js?v=20261117c" defer></script>
+  <script src="assets/js/story.js?v=20261117c" defer></script>
+  <script src="assets/js/inventory-defaults.js?v=20261117c" defer></script>
+  <script src="assets/js/inventory.js?v=20261117c" defer></script>
+  <script src="assets/js/worldmap.js?v=20261117c" defer></script>
+  <script src="assets/js/lore.js?v=20261117c" defer></script>
+  <script src="assets/js/app.js?v=20261117c" defer></script>
+</body>
+</html>

@@ -292,33 +292,61 @@ Filter kategori, jumlah entri, dan accordion dirender otomatis oleh `window.Kats
 
 ## Deploy ke repository baru
 
-1. Buat repository baru di GitHub, misalnya `katsuiriku-journey`.
-2. Dari folder ini:
+Repo lokal sudah diinisialisasi di branch `main` dengan commit pertama. Tinggal buat repo kosong di GitHub lalu push.
+
+### 1. Buat repository kosong
+
+1. Buka <https://github.com/new>.
+2. **Repository name**: `katsuiriku-journey`.
+3. **Visibility**: Public (wajib untuk GitHub Pages gratis).
+4. **Jangan** centang “Add a README file”, “Add .gitignore”, atau license — repo harus kosong.
+5. Klik **Create repository**.
+
+### 2. Push dari folder ini
+
+Ganti `ChickenKatsui` kalau username GitHub-mu berbeda.
 
 ```bash
-git init
-git add .
-git commit -m "Initial visual novel prototype"
-git branch -M main
 git remote add origin https://github.com/ChickenKatsui/katsuiriku-journey.git
 git push -u origin main
 ```
 
-3. Buka **Settings → Pages**.
-4. Pilih **Deploy from a branch**.
-5. Branch `main`, folder `/ (root)`.
-6. Simpan dan tunggu build.
-7. URL akan menjadi:
+Saat diminta login, pilih **Sign in with your browser** (Git Credential Manager). Kalau tidak muncul, install Git for Windows terbaru atau login lewat Personal Access Token.
+
+### 3. Aktifkan GitHub Pages
+
+1. Buka repo → **Settings** → **Pages**.
+2. **Source**: `Deploy from a branch`.
+3. **Branch**: `main`, folder `/ (root)`.
+4. Klik **Save**, lalu tunggu 1–3 menit sampai muncul “Your site is live at …”.
+
+URL hasil:
 
 ```text
 https://chickenkatsui.github.io/katsuiriku-journey/
 ```
 
-Admin akan tersedia di:
+Admin:
 
 ```text
 https://chickenkatsui.github.io/katsuiriku-journey/admin/
 ```
+
+### 4. Update setelah ada perubahan
+
+```bash
+git add -A
+git commit -m "Update menu and art"
+git push
+```
+
+GitHub Pages otomatis rebuild setiap push ke `main`.
+
+### Catatan deploy
+
+- Folder `assets/img/_source/` berisi PNG asli dan diawali `_`, jadi otomatis **tidak** ikut dibuild Jekyll/GitHub Pages. File yang dipakai situs tetap `assets/img/riku.png` dan `assets/img/kanna.png`.
+- Jangan menambahkan `.nojekyll` kecuali memang ingin `_source` ikut ter-deploy.
+- `assets/js/supabase-config.js` hanya berisi anon key, aman untuk repo publik.
 
 ## Rencana berikutnya
 
